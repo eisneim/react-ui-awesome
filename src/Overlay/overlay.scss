@@ -1,0 +1,54 @@
+.nb-overlay-wraper{
+	position: relative;
+	cursor:pointer;
+	.nb-overlay{
+		// width:auto;
+		position:absolute;
+		z-index: 10;
+		font-size: 14px;
+		visibility:hidden;
+		opacity: 0;
+		transition: visibility 0s 0.4s, opacity 0.3s ease;
+		.nb-content{ 
+			background-color: rgba(255,255,255,0.8);
+			box-shadow: $shadow-depth3;
+			border-radius: 3px;
+			// border: $card-border;
+		}
+		&:after{
+			// opacity:0.8;
+			position:absolute;
+			z-index:2;
+		}
+		&.over-right:after{
+			@include psudo-triangle(7px,right,#fff);
+			left:-12px;
+			top:50%;
+			margin-top: -7px;
+		}
+		&.over-left:after{
+			@include psudo-triangle(7px,left,#fff);
+			right:-12px;
+			top:50%;
+			margin-top: -7px;
+		}
+		&.over-top:after{
+			@include psudo-triangle(7px,top,#fff);
+			bottom:-12px;
+			left:50%;
+			margin-left: -7px;
+		}
+		&.over-bottom:after{
+			@include psudo-triangle(7px,bottom,#fff);
+			top:-12px;
+			left:50%;
+			margin-left: -7px;
+		}
+	}
+	&.byHover:hover .nb-overlay, &.active .nb-overlay{
+		visibility: visible;
+		opacity:1;
+		transition:none;
+		animation: nb-show-up 0.3s ease;
+	}
+}
