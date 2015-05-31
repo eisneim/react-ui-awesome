@@ -1,0 +1,14 @@
+.nb-color-swatches{
+	li{
+		display: block;
+		float:left;
+		width:23px;
+		height:23px;
+		font-size: 12px;
+		border:solid 1px transparent;
+		cursor: pointer;
+		&:hover,&.active{
+			border-color: #333;
+		}
+	}
+}
